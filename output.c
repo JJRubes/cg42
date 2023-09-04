@@ -2,19 +2,19 @@
 int board[16] = {
 //  +-------+-------+-------+-------+
 //  |       |       |       |       |
-          4 ,     2 ,    -1 ,    -1 ,
+         -1 ,    -1 ,    -1 ,    -1 ,
 //  |       |       |       |       |
 //  +-------+-------+-------+-------+
 //  |       |       |       |       |
-          2 ,    -1 ,    -1 ,    -1 ,
+         -1 ,    -1 ,    -1 ,     2 ,
 //  |       |       |       |       |
 //  +-------+-------+-------+-------+
 //  |       |       |       |       |
-          4 ,    -1 ,    -1 ,    -1 ,
+         -1 ,     2 ,    -1 ,    -1 ,
 //  |       |       |       |       |
 //  +-------+-------+-------+-------+
 //  |       |       |       |       |
-          4 ,     2 ,     2 ,    -1 ,
+         -1 ,    -1 ,    -1 ,    -1 ,
 //  |       |       |       |       |
 //  +-------+-------+-------+-------+
 };
@@ -23,6 +23,9 @@ int board[16] = {
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#ifdef NEW_GAME
+#define val(i, j) board[i * 4 + (0 + j)]
+#endif
 #ifdef LEFT
 #define val(i, j) board[i * 4 + (0 + j)]
 #endif
@@ -77,12 +80,12 @@ int board[16] = {
 #define BT "%4$s%3$s%4$s%9$11d ,%10$6d ,%11$6d ,%12$6d ,\n%4$s%3$s%4$s%13$11d ,%14$6d ,%15$6d ,%16$6d ,\n"
 #define BU "%4$s%3$s%4$s%17$11d ,%18$6d ,%19$6d ,%20$6d ,\n%4$s%3$s};\n\n"
 #define BV "#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n#include <time.h>\n"
-#define BW "#ifdef LEFT\n#define val(i, j) board[i * 4 + (0 + j)]\n#endif\n"
-#define BX "#ifdef RIGHT\n#define val(i, j) board[i * 4 + (3 - j)]\n#endif\n"
-#define BY "#ifdef DOWN\n#define val(i, j) board[i + (3 - j) * 4]\n#endif\n"
-#define BZ "#ifdef UP\n#define val(i, j) board[i + (0 + j) * 4]\n#endif\n"
-#define CA "#define s(x) #x\n"
-#define CB "#define S(x) #x \" \" s(x)\n\n"
+#define BW "#ifdef NEW_GAME\n#define val(i, j) board[i * 4 + (0 + j)]\n#endif\n"
+#define BX "#ifdef LEFT\n#define val(i, j) board[i * 4 + (0 + j)]\n#endif\n"
+#define BY "#ifdef RIGHT\n#define val(i, j) board[i * 4 + (3 - j)]\n#endif\n"
+#define BZ "#ifdef DOWN\n#define val(i, j) board[i + (3 - j) * 4]\n#endif\n"
+#define CA "#ifdef UP\n#define val(i, j) board[i + (0 + j) * 4]\n#endif\n"
+#define CB "#define s(x) #x\n#define S(x) #x \" \" s(x)\n\n"
 #define CC "%1$s%21$s\n%1$s%22$s\n%1$s%23$s\n%1$s%24$s\n%1$s%25$s\n%1$s%26$s\n"
 #define CD "%1$s%27$s\n%1$s%28$s\n\n%1$s%29$s\n%1$s%30$s\n%1$s%31$s\n%1$s%32$s\n"
 #define CE "%1$s%33$s\n\n%1$s%34$s\n%1$s%35$s\n%1$s%36$s\n%1$s%37$s\n%1$s%38$s\n"

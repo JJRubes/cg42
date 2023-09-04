@@ -4,16 +4,20 @@ NO_MOVE:
 
 left: LEFT
 LEFT:
-	gcc 2048.c -o 2048 -Wall -D LEFT
+	@gcc 2048.c -o 2048 -Wall -D LEFT
 
 right: RIGHT
 RIGHT:
-	gcc 2048.c -o 2048 -Wall -D RIGHT
+	@gcc 2048.c -o 2048 -Wall -D RIGHT
 
 up: UP
 UP:
-	gcc 2048.c -o 2048 -Wall -D UP
+	@gcc 2048.c -o 2048 -Wall -D UP
 
 down: DOWN
 DOWN:
-	gcc 2048.c -o 2048 -Wall -D DOWN
+	@gcc 2048.c -o 2048 -Wall -D DOWN
+
+new_game:
+NEW_GAME:
+	@gcc 2048.c -o 2048 -Wall -D NEW_GAME
